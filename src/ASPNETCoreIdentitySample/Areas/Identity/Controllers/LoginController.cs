@@ -36,7 +36,7 @@ namespace ASPNETCoreIdentitySample.Areas.Identity.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(_logger));
         }
 
-        [BreadCrumb(Title = "ایندکس", Order = 1)]
+        [BreadCrumb(Title = "Index", Order = 1)]
         [NoBrowserCache]
         public IActionResult Index(string returnUrl = null)
         {
@@ -56,13 +56,13 @@ namespace ASPNETCoreIdentitySample.Areas.Identity.Controllers
                 var user = await _userManager.FindByNameAsync(model.Username);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "نام کاربری و یا کلمه‌ی عبور وارد شده معتبر نیستند.");
+                    ModelState.AddModelError(string.Empty, "Username or password invalid.");
                     return View(model);
                 }
 
                 if (!user.IsActive)
                 {
-                    ModelState.AddModelError(string.Empty, "اکانت شما غیرفعال شده‌است.");
+                    ModelState.AddModelError(string.Empty, "Your account has been deactived.");
                     return View(model);
                 }
 

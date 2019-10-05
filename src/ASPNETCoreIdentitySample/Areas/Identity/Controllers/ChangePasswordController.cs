@@ -44,7 +44,7 @@ namespace ASPNETCoreIdentitySample.Areas.Identity.Controllers
             _siteOptions = siteOptions ?? throw new ArgumentNullException(nameof(_siteOptions));
         }
 
-        [BreadCrumb(Title = "ایندکس", Order = 1)]
+        [BreadCrumb(Title = "Index", Order = 1)]
         public async Task<IActionResult> Index()
         {
             var userId = this.User.Identity.GetUserId<int>();
@@ -93,7 +93,7 @@ namespace ASPNETCoreIdentitySample.Areas.Identity.Controllers
 
                 await _emailSender.SendEmailAsync(
                            email: user.Email,
-                           subject: "اطلاع رسانی تغییر کلمه‌ی عبور",
+                           subject: "Change password",
                            viewNameOrPath: "~/Areas/Identity/Views/EmailTemplates/_ChangePasswordNotification.cshtml",
                            model: new ChangePasswordNotificationViewModel
                            {
